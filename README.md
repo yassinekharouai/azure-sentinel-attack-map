@@ -87,11 +87,26 @@ number of attempts.
 ![Attack Map](screenshots/08-attack-map.png)
 
 ## Results
-<!-- Replace with YOUR real numbers after the VM has run for 24 to 48 hours -->
-- Total failed logins: **X** in **Y hours**
-- Unique attacker IPs: **X** from **Y** countries
-- Top source countries: 1. ___ 2. ___ 3. ___
-- Most targeted usernames: ___, ___, ___
+Over [TIME RANGE] the honeypot recorded roughly **38,000 failed logon attempts (Event ID 4625)**
+from at least **7 countries**.
+
+| Source | Failed attempts |
+|---|---|
+| Maarn, Netherlands | 27.6K |
+| Berkeley, United States | 2.65K |
+| Ganzhou, China | 2.39K |
+| Sannomaru, Japan | 1.81K |
+| Düsseldorf, Germany | 1.03K |
+| Milan, Italy | 743 |
+| Zambia | 861 (combined) |
+| Los Angeles, United States | 537 |
+
+**Observations**
+- One source IP (`80.94.95.83`, geolocated to the Netherlands) accounted for most of the
+  traffic in the log samples I inspected, a typical automated brute-force pattern
+- Targeted usernames were generic: `ADMIN`, `ADMINISTRADOR`, `USER`, `SYSTEM`, `BACKUP`, `HP`, `PC`
+- Attempts arrived in rapid bursts, often several per second, which indicates automation
+- Geolocation is approximate and often points to hosting providers, not the attackers themselves
 
 ## Key Takeaways
 - An internet-exposed RDP host is attacked within minutes
