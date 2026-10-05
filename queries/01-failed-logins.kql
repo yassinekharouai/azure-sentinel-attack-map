@@ -1,0 +1,5 @@
+// All failed logon attempts (Event ID 4625)
+SecurityEvent
+| where EventID == 4625
+| project TimeGenerated, Account, IpAddress, Computer
+| order by TimeGenerated desc
